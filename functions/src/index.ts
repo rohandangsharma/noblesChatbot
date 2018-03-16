@@ -205,11 +205,54 @@ exports.webhook = functions.https.onRequest((request, response) => {
 
             break;
         case "startTime":
+            console.log("startTime is invoked");
 
-            //query database
+            db.collection('noblesInfo').doc('timing').get().then(doc => {
 
-            response.send({
-                speech: "our school opens at 9"
+                let speech = "";
+
+                if (doc.exists) {
+                    console.log("Start time: ", doc.data().startTime);
+                    speech = `School starts at ${doc.data().startTime}`;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    speech = `I'm having trouble finding the start time!`;
+                }
+                response.send({
+                    speech: speech
+                })
+
+            }).catch(error => {
+                console.log("Something went wrong", error);
+                response.send({
+                    speech: `Something went wrong on server`
+                })
+            })
+            case "endTime":
+            console.log("endTime is invoked");
+
+            db.collection('noblesInfo').doc('timing').get().then(doc => {
+
+                let speech = "";
+
+                if (doc.exists) {
+                    console.log("End time: ", doc.data().endTime);
+                    speech = `School ends at ${doc.data().endTime}`;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    speech = `I'm having trouble finding the end time!`;
+                }
+                response.send({
+                    speech: speech
+                })
+
+            }).catch(error => {
+                console.log("Something went wrong", error);
+                response.send({
+                    speech: `Something went wrong on server`
+                })
             })
             break;
         default:
