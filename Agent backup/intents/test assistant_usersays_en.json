@@ -1,0 +1,26 @@
+[
+  {
+    "id": "db5c9336-86c9-49df-ba4b-b49a8080d200",
+    "data": [
+      {
+        "text": "test",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521207549
+  },
+  {
+    "id": "196c8538-f199-41a4-a92c-6ca0b6bad8cf",
+    "data": [
+      {
+        "text": "test assistant",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521207549
+  }
+]

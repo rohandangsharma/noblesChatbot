@@ -1,0 +1,38 @@
+[
+  {
+    "id": "9ce6878f-75cb-4ae4-b5de-98e386763e57",
+    "data": [
+      {
+        "text": "What is the mission statement",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521213574
+  },
+  {
+    "id": "f78c39b0-d52c-4b6c-bc50-c440a55fd1a1",
+    "data": [
+      {
+        "text": "What is Nobles\u0027 mission statement",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521213574
+  },
+  {
+    "id": "efcacc19-d5b9-4bb0-a013-397a3f6e79a2",
+    "data": [
+      {
+        "text": "What is the mission of the school",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521213574
+  }
+]

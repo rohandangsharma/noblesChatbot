@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1e7ce871-317f-4ce9-888a-5b537401ba0d",
+    "data": [
+      {
+        "text": "how many students are there in ",
+        "userDefined": false
+      },
+      {
+        "text": "Bates College",
+        "alias": "school1",
+        "meta": "@school1",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1520873982
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "f7cefefe-c222-4ceb-8318-b2ca933835ba",
+    "data": [
+      {
+        "text": "when does the school day stop",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521212718
+  },
+  {
+    "id": "08b3f28f-98a8-49a7-9e07-2b615975e5a2",
+    "data": [
+      {
+        "text": "when does school end",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521212718
+  },
+  {
+    "id": "f76394db-c0bb-4b7c-8d60-5aba7a413274",
+    "data": [
+      {
+        "text": "when does school close",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521212718
+  },
+  {
+    "id": "21ddf590-d1b0-4f3b-9d5f-529baad3b8fd",
+    "data": [
+      {
+        "text": "what time does school close",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521212718
+  }
+]

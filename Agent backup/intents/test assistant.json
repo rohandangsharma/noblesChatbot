@@ -1,0 +1,46 @@
+{
+  "id": "480ea0a2-74f2-48df-a50f-099ccda5f19f",
+  "name": "test assistant",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "suggestion_chips",
+          "platform": "google",
+          "lang": "en",
+          "suggestions": [
+            {
+              "title": "what is you name"
+            },
+            {
+              "title": "what is your age"
+            },
+            {
+              "title": "exit"
+            }
+          ]
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "this is the test response"
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "google": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1521207549,
+  "fallbackIntent": false,
+  "events": []
+}

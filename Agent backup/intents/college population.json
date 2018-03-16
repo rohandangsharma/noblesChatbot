@@ -1,0 +1,52 @@
+{
+  "id": "a6864901-e3d3-4812-8a0d-214eab2802c3",
+  "name": "college population",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "getPopulation",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "7dda10da-dddc-4d90-903c-0f29d5c65e06",
+          "required": true,
+          "dataType": "@school1",
+          "name": "school1",
+          "value": "$school1",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Which college?"
+            },
+            {
+              "lang": "en",
+              "value": "What is the name of the college?"
+            },
+            {
+              "lang": "en",
+              "value": "Please tell me the college name!"
+            }
+          ],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "something went wrong"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1520895980,
+  "fallbackIntent": false,
+  "events": []
+}
