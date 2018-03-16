@@ -229,7 +229,8 @@ exports.webhook = functions.https.onRequest((request, response) => {
                     speech: `Something went wrong on server`
                 })
             })
-            case "endTime":
+            break;
+        case "endTime":
             console.log("endTime is invoked");
 
             db.collection('noblesInfo').doc('timing').get().then(doc => {
@@ -254,6 +255,34 @@ exports.webhook = functions.https.onRequest((request, response) => {
                     speech: `Something went wrong on server`
                 })
             })
+
+            break;
+        case "missionStatement":
+            console.log("missionStatement is invoked");
+
+            db.collection('noblesInfo').doc('mission').get().then(doc => {
+
+                let speech = "";
+
+                if (doc.exists) {
+                    console.log("Mission: ", doc.data().missionStatement);
+                    speech = `Our mission statement is:  ${doc.data().missionStatement}`;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    speech = `I'm having trouble finding the mission statement`;
+                }
+                response.send({
+                    speech: speech
+                })
+
+            }).catch(error => {
+                console.log("Something went wrong", error);
+                response.send({
+                    speech: `Something went wrong on server`
+                })
+            })
+
             break;
         default:
             response.send({
