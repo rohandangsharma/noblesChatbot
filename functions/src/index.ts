@@ -7,7 +7,6 @@ import * as r from 'request';
 //
 export const helloWorld = functions.https.onRequest((request, response) => {
 
-
     response.send("Hello from Firebase!");
 });
 
@@ -204,6 +203,14 @@ exports.webhook = functions.https.onRequest((request, response) => {
 
 
 
+            break;
+        case "startTime":
+
+            //query database
+
+            response.send({
+                speech: "our school opens at 9"
+            })
             break;
         default:
             response.send({
