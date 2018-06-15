@@ -187,7 +187,7 @@ exports.webhook = functions.https.onRequest((request, response) => {
                         speech = `${results[0].students} student went to ${results[0].college} last year. http://www.nobles.edu/upper-school/FiveYearMatriculation.cfm`
                     }
                     else {
-                        speech = `${results[0].students} students went to ${results[0].college} last year. http://www.nobles.edu/upper-school/FiveYearMatriculation.cfm`
+                        speech = `${results[0].students} students went to ${results[0].college} last year.`
                     }
 
 
@@ -199,10 +199,6 @@ exports.webhook = functions.https.onRequest((request, response) => {
                 .catch(function (error) {
                     console.log("Error getting documents: ", error);
                 });
-
-
-
-
             break;
         case "startTime":
             console.log("startTime is invoked");
@@ -239,7 +235,7 @@ exports.webhook = functions.https.onRequest((request, response) => {
 
                 if (doc.exists) {
                     console.log("End time: ", doc.data().endTime);
-                    speech = `School ends at ${doc.data().endTime}`;
+                    speech = `The school day typically ends at ${doc.data().endTime}`;
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
@@ -265,8 +261,8 @@ exports.webhook = functions.https.onRequest((request, response) => {
                 let speech = "";
 
                 if (doc.exists) {
-                    console.log("Mission: ", doc.data().missionStatement);
-                    speech = `Our mission statement is:  ${doc.data().missionStatement}`;
+                    console.log("History: ", doc.data().missionStatement);
+                    speech = `Noble's Mission statement is ${doc.data().missionStatement}`;
                 } else {
                     // doc.data() will be undefined in this case
                     console.log("No such document!");
@@ -284,6 +280,216 @@ exports.webhook = functions.https.onRequest((request, response) => {
             })
 
             break;
+        case "admissonDirector":
+            console.log("missionStatement is invoked");
+
+            db.collection('noblesInfo').doc('mission').get().then(doc => {
+
+                let speech = "";
+
+                if (doc.exists) {
+                    console.log("The Director of Admission is Brooke Asnis");
+                    speech = `The Director of Admission is Brooke Asnis`;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    speech = `I'm having trouble finding the admission director`;
+                }
+                response.send({
+                    speech: speech
+                })
+
+            }).catch(error => {
+                console.log("Something went wrong", error);
+                response.send({
+                    speech: `Something went wrong on server`
+                })
+            })
+
+            break;
+        case "schoolHistory":
+            console.log("startTime is invoked");
+
+            db.collection('noblesInfo').doc('schoolHistory').get().then(doc => {
+
+                let speech = "";
+
+                if (doc.exists) {
+                    console.log("History: ", doc.data().schoolHistory);
+                    speech = ` ${doc.data().schoolHistory}`;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    speech = `I'm having trouble finding the start time!`;
+                }
+                response.send({
+                    speech: speech
+                })
+
+            }).catch(error => {
+                console.log("Something went wrong", error);
+                response.send({
+                    speech: `Something went wrong on server`
+                })
+            })
+            break;
+        case "CSCourses":
+            console.log("CSCourses is invoked");
+
+            db.collection('offerings').doc('subjects').get().then(doc => {
+
+                let speech = "";
+
+                if (doc.exists) {
+                    console.log(doc.data().computerScience);
+                    speech = `We offer a variety of computer science courses. They include ${doc.data().computerScience}`;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    speech = `I'm having trouble finding the start time!`;
+                }
+                response.send({
+                    speech: speech
+                })
+
+            }).catch(error => {
+                console.log("Something went wrong", error);
+                response.send({
+                    speech: `Something went wrong on server`
+                })
+            })
+            break;
+        case "location":
+            console.log("location is invoked");
+
+            db.collection('noblesInfo').doc('address').get().then(doc => {
+
+                let speech = "";
+
+                if (doc.exists) {
+                    console.log(doc.data().address);
+                    speech = `The address of Nobles is ${doc.data().address}`;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    speech = `I'm having trouble finding the start time!`;
+                }
+                response.send({
+                    speech: speech
+                })
+
+            }).catch(error => {
+                console.log("Something went wrong", error);
+                response.send({
+                    speech: `Something went wrong on server`
+                })
+            })
+            break;
+        case "studentPopulation":
+            console.log("studentPopulation is invoked");
+
+            db.collection('noblesInfo').doc('population').get().then(doc => {
+
+                let speech = "";
+
+                if (doc.exists) {
+                    console.log(doc.data().students);
+                    speech = ` ${doc.data().students}`;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    speech = `I'm having trouble finding the start time!`;
+                }
+                response.send({
+                    speech: speech
+                })
+
+            }).catch(error => {
+                console.log("Something went wrong", error);
+                response.send({
+                    speech: `Something went wrong on server`
+                })
+            })
+            break;
+        case "gender":
+            console.log("gender is invoked");
+
+            db.collection('noblesInfo').doc('population').get().then(doc => {
+
+                let speech = "";
+
+                if (doc.exists) {
+                    console.log("Girls:", doc.data().female, "Boys:", doc.data().male);
+                    speech = `At Nobles there are ${doc.data().female} girls and ${doc.data().male} boys within the student body.`;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    speech = `I'm having trouble finding the start time!`;
+                }
+                response.send({
+                    speech: speech
+                })
+
+            }).catch(error => {
+                console.log("Something went wrong", error);
+                response.send({
+                    speech: `Something went wrong on server`
+                })
+            })
+            break;
+        case "faculty":
+            console.log("studentPopulation is invoked");
+
+            db.collection('noblesInfo').doc('population').get().then(doc => {
+
+                let speech = "";
+
+                if (doc.exists) {
+                    console.log("Faculty:", doc.data().faculty);
+                    speech = `We have ${doc.data().faculty} amazing faculty memebers. The student to faculty ratio is ${doc.data().studentFacultyRatio}`;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    speech = `I'm having trouble finding the start time!`;
+                }
+                response.send({
+                    speech: speech
+                })
+
+            }).catch(error => {
+                console.log("Something went wrong", error);
+                response.send({
+                    speech: `Something went wrong on server`
+                })
+            })
+            break;
+        case "tuition":
+            console.log("tuition is invoked");
+
+            db.collection('noblesInfo').doc('tuition').get().then(doc => {
+
+                let speech = "";
+
+                if (doc.exists) {
+                    console.log("Day Student: ", doc.data().dayStudent, "Boarding Student: ", doc.data().boardingStudent);
+                    speech = `Nobles tution for a day student is $${doc.data().dayStudent}, and $${doc.data().boardingStudent} for boarding students. Financial aid is availble for qualifying families.`;
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                    speech = `I'm having trouble finding the start time!`;
+                }
+                response.send({
+                    speech: speech
+                })
+
+            }).catch(error => {
+                console.log("Something went wrong", error);
+                response.send({
+                    speech: `Something went wrong on server`
+                })
+            })
+            break;
+            
         default:
             response.send({
                 speech: "ok something went wrong"
